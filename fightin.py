@@ -39,34 +39,42 @@ def usr_stats(race):
     global usr_hitpoints
     global usr_armorclass
     global usr_attack
+
     if race == 'human':
         usr_hitpoints += race_human['HP_Mod']
         usr_armorclass += race_human['AC_Mod']
         usr_attack += race_human['ATK_Mod']
+
     elif race == 'orc':
         usr_hitpoints += race_orc['HP_Mod']
         usr_armorclass += race_orc['AC_Mod']
         usr_attack += race_orc['ATK_Mod']
+
     elif race == 'goblin':
         usr_hitpoints += race_goblin['HP_Mod']
         usr_armorclass += race_goblin['AC_Mod']
         usr_attack += race_goblin['ATK_Mod']
+
     elif race == 'dwarf':
         usr_hitpoints += race_dwarf['HP_Mod']
         usr_armorclass += race_dwarf['AC_Mod']
         usr_attack += race_dwarf['ATK_Mod']
+
     elif race == 'troll':
         usr_hitpoints += race_troll['HP_Mod']
         usr_armorclass += race_troll['AC_Mod']
         usr_attack += race_troll['ATK_Mod']
+
     elif race == 'elf':
         usr_hitpoints += race_elf['HP_Mod']
         usr_armorclass += race_elf['AC_Mod']
         usr_attack += race_elf['ATK_Mod']
+
     elif race == 'halfling':
         usr_hitpoints += race_halfling['HP_Mod']
         usr_armorclass += race_halfling['AC_Mod']
         usr_attack += race_halfling['ATK_Mod']
+
     elif race == 'gnome':
         usr_hitpoints += race_gnome['HP_Mod']
         usr_armorclass += race_gnome['AC_Mod']
@@ -133,6 +141,7 @@ def nl():
 
 
 # Generates An Enemy
+# noinspection PyGlobalUndefined,PyGlobalUndefined
 def genEnemy():
     #generates the AI player race
     global enemy_race
@@ -228,6 +237,7 @@ def Forfeit():
 
 
 # User Attacks or Misses
+# noinspection PyGlobalUndefined
 def userAttack():
     global USER_CHARARCTER_STATS
     global ENEMY_STATS
@@ -250,6 +260,7 @@ def userAttack():
 
 
 # Enemy Attacks or Misses
+# noinspection PyGlobalUndefined
 def enemyAttack():
     global USER_CHARARCTER_STATS
     global ENEMY_STATS
@@ -270,6 +281,7 @@ def enemyAttack():
 
 
 # Print Out Battle Stats
+# noinspection PyGlobalUndefined
 def printBattleStats():
     global slowtext
     print('       |Battle Stats|')
@@ -281,6 +293,7 @@ def printBattleStats():
 
 
 # General Battle Template
+# noinspection PyGlobalUndefined,PyGlobalUndefined,PyGlobalUndefined,PyGlobalUndefined,PyGlobalUndefined
 def battle():
     global genEnemy
     #YES IT TALKS TRASH
@@ -288,6 +301,7 @@ def battle():
     global userAttack
     global enemyAttack
     global printBattleStats
+    # noinspection PyGlobalUndefined
     global slowtext
     global USER_CHARARCTER_STATS
     global ENEMY_STATS
@@ -387,11 +401,12 @@ def battle():
                 else:
                     slowtext('You did nothing this turn')
                     pass
-                time.sleep(10)
+                time.sleep(5)
 
                 # ----------------------------------------------------------------------------#
 
 
+# noinspection PyGlobalUndefined
 def quickPlay():
     global USER_CHARARCTER_STATS
     global slowtext
