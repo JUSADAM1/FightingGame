@@ -4,9 +4,13 @@ import time
 import os
 
 # -----------------------------------Variables----------------------------------- #
+#enemy name when published
 enemy_name = ''
+#enemy race name
 enemy_race = ''
+#how much health the AI/Enemy has
 enemy_hitpoints = 50
+
 enemy_armorclass = 1
 enemy_attack = 6
 races = ['human', 'orc', 'goblin', 'dwarf', 'troll', 'elf', 'halfling', 'gnome']
@@ -36,9 +40,10 @@ os.system("color 17")
 
 # Setting User Stats
 def usr_stats(race):
-    global usr_hitpoints
+
+    usr_hitpoints = 0;
     global usr_armorclass
-    global usr_attack
+    usr_attack = 0;
 
     if race == 'human':
         usr_hitpoints += race_human['HP_Mod']
@@ -130,7 +135,7 @@ def enemy_stats(race):
 # Print Out Text!
 def slowtext(u):
     for i in u:
-        time.sleep(.03)
+        time.sleep(10)
         print(i, end='')
     nl()
 
@@ -144,7 +149,7 @@ def nl():
 # noinspection PyGlobalUndefined,PyGlobalUndefined
 def genEnemy():
     #generates the AI player race
-    global enemy_race
+    enemy_race = 0;
     #generates the names
     global enemy_name
     #adds the stats given to AI
@@ -175,7 +180,7 @@ def genEnemy():
 #STILL IN THE WORKS
 def user_char():
 #STILL A WORK IN PROGRESS
-    global usr_name
+    usr_name = 0;
     global usr_race
     global USER_CHARARCTER_STATS
 
@@ -238,7 +243,7 @@ def Forfeit():
 
 # User Attacks or Misses
 # noinspection PyGlobalUndefined
-def userAttack():
+def is_user_attack_successful():
     global USER_CHARARCTER_STATS
     global ENEMY_STATS
     global slowtext
@@ -298,7 +303,7 @@ def battle():
     global genEnemy
     #YES IT TALKS TRASH
     global trashtalk
-    global userAttack
+    is_user_attack_successful = False;
     global enemyAttack
     global printBattleStats
     # noinspection PyGlobalUndefined
@@ -386,9 +391,8 @@ def battle():
                     if ENEMY_STATS['BLOCK'] == 'true':
                         slowtext(('*%s was blocked*') % (ENEMY_STATS['NAME']))
                         slowtext('*No damage*')
-                        pass
                     else:
-                        userAttack()
+                        is_user_attack_successful = True;
                 # Block
                 elif move.startswith('b'):
                     USER_CHARARCTER_STATS['BLOCK'] = 'true'
